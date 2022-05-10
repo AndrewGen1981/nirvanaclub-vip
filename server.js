@@ -5,17 +5,17 @@ const path = require('path')
 
 let HTTPDOMAIN
 
-if (process.env.NODE_ENV === 'production') {
-    // redirects HTTP to HTTPS
-    app.enable('trust proxy')
-    app.use((req, res, next) => {
-        HTTPDOMAIN = `https://${req.headers.host}${req.url}`
-        req.secure ? next() : res.redirect(HTTPDOMAIN)
-    })
-} else {
-    require('dotenv').config() // set .ENV
-    HTTPDOMAIN = 'http://localhost'
-}
+// if (process.env.NODE_ENV === 'production') {
+//     // redirects HTTP to HTTPS
+//     app.enable('trust proxy')
+//     app.use((req, res, next) => {
+//         HTTPDOMAIN = `https://${req.headers.host}${req.url}`
+//         req.secure ? next() : res.redirect(HTTPDOMAIN)
+//     })
+// } else {
+//     require('dotenv').config() // set .ENV
+//     HTTPDOMAIN = 'http://localhost'
+// }
 
 // saving ROOT DIR into globals to use in other routes
 global.__basedir = __dirname
